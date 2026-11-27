@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "global-broker-ai"
+version = "0.1.0"
+description = "Verified modular control core for GLOBAL BROKER AI"
+requires-python = ">=3.11"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "GLOBAL BROKER AI" }]
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=8", "hypothesis>=6"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["CORE*", "CONTROL*", "ENGINES*", "COMPONENTS*", "PROOF*", "SECURITY*", "BENCHMARKS*", "AGENTS*"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["TESTS"]
